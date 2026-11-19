@@ -1,1 +1,1 @@
-index.html
+https://github.com/meseretrufiuga/meseret-rufi-uga-football-predictor
