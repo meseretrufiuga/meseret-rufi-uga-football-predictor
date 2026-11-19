@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MESERET RUFI UGA FOOTBALL PREDICTOR</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#101827;color:#f8fafc}header{background:#0b6b45;padding:28px 16px;text-align:center}h1{margin:0;font-size:clamp(24px,5vw,38px)}header p{margin:9px 0 0}.wrap{max-width:850px;margin:24px auto;padding:0 14px}.card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:18px;margin:15px 0}.match{display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;align-items:center;text-align:center}.match input{width:55px;padding:10px;border-radius:8px;border:0;text-align:center;font-size:18px}.team{font-weight:bold}.btn{background:#16a36a;color:white;border:0;padding:12px 18px;border-radius:9px;font-size:16px;cursor:pointer}.muted{color:#cbd5e1;line-height:1.55}.score{font-size:22px;font-weight:bold;color:#86efac}footer{text-align:center;color:#cbd5e1;padding:24px}
+</style></head>
+<body>
+<header><h1>MESERET RUFI UGA FOOTBALL PREDICTOR</h1><p>Founder &amp; Owner: Meseret Rufi Uga</p></header>
+<main class="wrap">
+<section class="card"><h2>Welcome!</h2><p class="muted">Welcome to Meseret Rufi Uga Football Predictor — a free football prediction and knowledge game. Make score predictions, collect points for fun, and enjoy football with friends.</p><p class="muted"><strong>Free entertainment only:</strong> no betting, no entry fees, no deposits, and no cash prizes.</p></section>
+<h2>Sample matches</h2>
+<div id="matches"></div>
+<section class="card"><button class="btn" onclick="savePredictions()">Save my predictions</button> <button class="btn" onclick="showPoints()">Check points</button><p id="message" class="muted" aria-live="polite">Your predictions are saved only in this browser.</p><p class="score" id="points"></p></section>
+<section class="card"><h2>How to play</h2><ol class="muted"><li>Enter the score you predict for each sample match.</li><li>Tap “Save my predictions”.</li><li>Use the points feature for fun when sample results are entered by the site owner.</li></ol><p class="muted">This demo does not fetch live fixtures or results. Predictions stay on your device.</p></section>
+</main><footer>© 2026 Meseret Rufi Uga Football Predictor</footer>
+<script>
+const games=[['Arsenal','Chelsea'],['Liverpool','Manchester City'],['Real Madrid','Barcelona']];
+const root=document.getElementById('matches');
+games.forEach((g,i)=>{const box=document.createElement('section');box.className='card';box.innerHTML=`<h3>Match ${i+1}</h3><div class="match"><span class="team">${g[0]}</span><span><input type="number" min="0" max="20" id="h${i}" aria-label="${g[0]} predicted goals"> : <input type="number" min="0" max="20" id="a${i}" aria-label="${g[1]} predicted goals"></span><span class="team">${g[1]}</span></div>`;root.appendChild(box)});
+function savePredictions(){const p=games.map((g,i)=>({home:document.getElementById('h'+i).value,away:document.getElementById('a'+i).value}));localStorage.setItem('mrufipredictions',JSON.stringify(p));document.getElementById('message').textContent='Predictions saved on this device.'}
+function showPoints(){document.getElementById('points').textContent='Points: 0 (demo mode — no official results have been added).'}
+const old=JSON.parse(localStorage.getItem('mrufipredictions')||'null');if(old)old.forEach((p,i)=>{document.getElementById('h'+i).value=p.home;document.getElementById('a'+i).value=p.away});
+</script></body></html>
